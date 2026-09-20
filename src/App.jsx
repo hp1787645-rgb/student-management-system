@@ -1,8 +1,15 @@
+import StudentCard from "./components/StudentCard";
+
 function App() {
   return (
     <div>
       <h1>Student Management System</h1>
-      <p>Welcome to the Student Management System</p>
+
+      <StudentCard
+  name="Rahul"
+  rollNo="101"
+  course="BCA"
+/>
     </div>
   );
 }
