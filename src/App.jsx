@@ -1,27 +1,24 @@
-import { useState, useEffect } from "react";
-import StudentCard from "./components/StudentCard";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import Students from "./pages/Students";
+import About from "./pages/About";
 
 function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-  document.title = `Students: ${count}`;
-}, [count]);
- return (
-  <div>
-    <h1>Student Management System</h1>
+  return (
+    <BrowserRouter>
+      <nav>
+        <Link to="/">Home</Link> |{" "}
+        <Link to="/students">Students</Link> |{" "}
+        <Link to="/about">About</Link>
+      </nav>
 
-    <p>Total Students: {count}</p>
-    <button onClick={() => setCount(count + 1)}>
-  Add Student
-</button>
-
-    <StudentCard
-      name="Rahul"
-      rollNo="101"
-      course="BCA"
-    />
-  </div>
-);
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/students" element={<Students />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
