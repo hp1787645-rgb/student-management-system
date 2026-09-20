@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StudentCard from "./components/StudentCard";
 
 function App() {
   const [count, setCount] = useState(0);
+  useEffect(() => {
+  document.title = `Students: ${count}`;
+}, [count]);
  return (
   <div>
     <h1>Student Management System</h1>
